@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>WooNiuu</copyright>
-        <lastBuildDate>Sat, 08 Nov 2025 16:50:55 +0800</lastBuildDate><atom:link href="https://wooniuu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 08 Nov 2025 22:52:26 +0800</lastBuildDate><atom:link href="https://wooniuu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Newtest</title>
+        <link>https://wooniuu.github.io/p/newtest/</link>
+        <pubDate>Sat, 08 Nov 2025 22:52:26 +0800</pubDate>
+        
+        <guid>https://wooniuu.github.io/p/newtest/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>MyFirstBlog</title>
         <link>https://wooniuu.github.io/p/myfirstblog/</link>
         <pubDate>Sat, 08 Nov 2025 16:50:55 +0800</pubDate>

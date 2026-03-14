@@ -7,7 +7,154 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>WooNiuu</copyright>
-        <lastBuildDate>Fri, 13 Mar 2026 22:14:28 +0800</lastBuildDate><atom:link href="https://wooniuu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 14 Mar 2026 17:26:27 +0800</lastBuildDate><atom:link href="https://wooniuu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Orlistat Bioequivalence</title>
+        <link>https://wooniuu.github.io/p/orlistat-bioequivalence/</link>
+        <pubDate>Sat, 14 Mar 2026 17:26:27 +0800</pubDate>
+        
+        <guid>https://wooniuu.github.io/p/orlistat-bioequivalence/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;声明：本文表述观点为作者个人观点！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;在 BE 研究中，药效学终点指标被定义为一个可定量测量或定性评价的治疗干预性指标。不同于基于PK终点的BE研究，其PK暴露与剂量关系通常是线性的，在药效学研究中，量效曲线通常是非线性的，所测量或观察的药效学响应指标或许不能同比例地反映出剂量差异，从而也无法准确反映出两药实际差异。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;PK-BE&lt;/th&gt;
+          &lt;th&gt;PD-BE&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;img src=&#34;https://wooniuu.github.io/p/orlistat-bioequivalence/image.png&#34;
+	width=&#34;292&#34;
+	height=&#34;176&#34;
+	srcset=&#34;https://wooniuu.github.io/p/orlistat-bioequivalence/image_hu_b69ff6b86c6aeea4.png 480w, https://wooniuu.github.io/p/orlistat-bioequivalence/image_hu_86d16a916bcee1fe.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;398px&#34;
+	
+&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;img src=&#34;https://wooniuu.github.io/p/orlistat-bioequivalence/image-1.png&#34;
+	width=&#34;289&#34;
+	height=&#34;176&#34;
+	srcset=&#34;https://wooniuu.github.io/p/orlistat-bioequivalence/image-1_hu_bfc4c22d54496970.png 480w, https://wooniuu.github.io/p/orlistat-bioequivalence/image-1_hu_136e129962a9833.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;164&#34;
+		data-flex-basis=&#34;394px&#34;
+	
+&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;暴露量与剂量成正比&lt;/td&gt;
+          &lt;td&gt;非线性剂量-效应：效应不随剂量成比例增加。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;安慰剂无暴露量（或进行基线校正）&lt;/td&gt;
+          &lt;td&gt;安慰剂效应可能很大&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;暴露量比值的90%置信区间可用于生物等效性评价&lt;/td&gt;
+          &lt;td&gt;通常不使用药效学（PD）效应比值的90%置信区间来进行生物等效性评价&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;FDA个药指南（PSG）中要求应用药效学方法评价BE：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;口服吸入制剂：硫酸沙丁胺醇气/粉雾剂……&lt;/li&gt;
+&lt;li&gt;局部作用胃肠道（GI）制剂：奥利司他、阿卡波糖、碳酸镧咀嚼片……&lt;/li&gt;
+&lt;li&gt;外用皮质类固醇制剂:地奈德乳膏、二丙酸倍他米松乳膏……&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在FDA的奥利司他胶囊的个药指南中提出&amp;quot;&lt;strong&gt;剂量标度（Dose Scale）法&lt;/strong&gt;&amp;quot;，该方法将非线性的药效学终点测量指标转化为线性的剂量测量指标，从而转化为针对相对生物利用度（F）的 BE 研究。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://wooniuu.github.io/p/orlistat-bioequivalence/image-2.png&#34;
+	width=&#34;410&#34;
+	height=&#34;270&#34;
+	srcset=&#34;https://wooniuu.github.io/p/orlistat-bioequivalence/image-2_hu_e20b23f6ce8dcd52.png 480w, https://wooniuu.github.io/p/orlistat-bioequivalence/image-2_hu_2edbc8c7baa00e5f.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;dose-scale&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;151&#34;
+		data-flex-basis=&#34;364px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;奥利司他be研究&#34;&gt;奥利司他BE研究
+&lt;/h2&gt;&lt;p&gt;设计：多次给药、三交叉体内研究，包括两次参比制剂和至少一次受试制剂给药（&lt;em&gt;可以考虑增加受试和参比制剂的剂量，以提高剂量比例分析中参数的精度&lt;/em&gt;）
+受试制剂规格：60mg
+注意：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按照参比制剂说明书服用;&lt;/li&gt;
+&lt;li&gt;整个研究期间要求标准化饮食，受试者应吃完所有食物；&lt;/li&gt;
+&lt;li&gt;给药前饮食平衡期≥5天；&lt;/li&gt;
+&lt;li&gt;按以下方式给药：
+&lt;ul&gt;
+&lt;li&gt;(1) 参比制剂60mg tid；&lt;/li&gt;
+&lt;li&gt;(2) 参比制剂2×60mg tid 或120mg tid；或者；&lt;/li&gt;
+&lt;li&gt;(3) 试验制剂60mg tid 和/或 2×60mg tid；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;每个治疗期应至少持续9天;&lt;/li&gt;
+&lt;li&gt;每个治疗期之间应有至少4天洗脱期。&lt;/li&gt;
+&lt;li&gt;粪便样本的收集和测量应准确。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;效应指标：&lt;strong&gt;粪便脂肪排泄百分比&lt;/strong&gt;，表示为24小时稳态时脂肪排泄量与每日摄入脂肪量的比率。
+基于（90% CI）的生物等效性：相对生物利用度F的90%置信区间应在80.00-125.00%之间。&lt;/p&gt;
+&lt;h3 id=&#34;e_max模型构建&#34;&gt;$E_{max}$模型构建
+&lt;/h3&gt;&lt;p&gt;使用非线性混合效应（NLME）建模，可表征受试者间变异和残差变异性，并且对异常观测值和缺失值的敏感性较低。
+NLME模型拟合软件：NONMEM、SAS、R 等
+将受试和参比制剂的个体剂量效应数据汇总，拟合到以下模型：
+&lt;/p&gt;
+$$ y = E_0 + \frac{E_{\text{max}} \cdot Dose \cdot F^i}{ED_{50} + Dose \cdot F^i} $$&lt;p&gt;
+其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;y = PD效应&lt;/li&gt;
+&lt;li&gt;Dose = 给药剂量&lt;/li&gt;
+&lt;li&gt;$E_0$ = 未使用药物时的基线效应&lt;/li&gt;
+&lt;li&gt;$E_{max}$ = 拟合的最大药物效应&lt;/li&gt;
+&lt;li&gt;$ED_{50}$ = 产生50%拟合最大效应的剂量&lt;/li&gt;
+&lt;li&gt;i = 处理指示变量（0 = 参比，1 = 受试），即$F^0$ = 1，$F^1$ 为用于评估生物等效性的相对生物利用度。&lt;/li&gt;
+&lt;li&gt;相对生物利用度F是产生等效PD效应的受试和参比制剂剂量的比值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该模型基于以下假设：受试和参比制剂的$E_0$和$E_{max}$相同，参比制剂的$ED_{50}$就是其本身，而受试制剂的$ED_{50}$为$ED_{50}/F^1$。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;固定效应为$E_0、E_{max}、ED_{50}和F$；&lt;/li&gt;
+&lt;li&gt;受试者间随机效应：参数如$E_0、E_{max}$等&lt;/li&gt;
+&lt;li&gt;残差随机效应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可提交适当的理由以支持最终选定的模型。&lt;/p&gt;
+&lt;h3 id=&#34;90置信区间&#34;&gt;90%置信区间
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;直接根据非线性混合效应（NLME）模型中的F的点估计值及其标准误来估计90%置信区间；&lt;/li&gt;
+&lt;li&gt;通过自助法（bootstrap，&amp;gt;1000次），使用Efron的偏差校正和加速（BCa）方法来计算90%置信区间。
+&lt;ul&gt;
+&lt;li&gt;按受试者（保留所有T-受试组和R-参比组的观测值，以保持受试者内观察结果的相关性）有放回的重新抽样，生成抽样“剂量 - 反应数据集”；&lt;/li&gt;
+&lt;li&gt;每个抽样“剂量-反应数据集”拟合$E_{max}$模型，估计F值；&lt;/li&gt;
+&lt;li&gt;计算F值的 90% 置信区间：Efron 偏差校正和加速（BCa）法；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考文献&#34;&gt;参考文献
+&lt;/h2&gt;&lt;p&gt;[1] FDA. Draft Guidance on Orlistat.2021&lt;/p&gt;
+&lt;p&gt;[2] Xu, L., Li, S., Wu, W. et al. Sample Size Determination and Study Design Impact on Dose-Scale Pharmacodynamic Bioequivalence: a Case Study Using Orlistat. AAPS J 26, 77 (2024). &lt;a class=&#34;link&#34; href=&#34;https://doi.org/10.1208/s12248-024-00951-5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://doi.org/10.1208/s12248-024-00951-5&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[3] 沈朝壮，孙华，李超，王晓虎，谢海棠．以药效学参数为终点指标的生物等效性评价方法 [J]. 药物评价研究, 2022, 45(4): 796-803. DOI:10.7501/j.issn.1674-6376.2022.04.025&lt;/p&gt;
+&lt;p&gt;[4] Efron B, Tibshirani RJ. An Introduction to the Bootstrap. (Chapman &amp;amp; Hall: New York, NY, 1993)&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Acarbose Bioequivalence</title>
         <link>https://wooniuu.github.io/p/acarbose-bioequivalence/</link>
         <pubDate>Fri, 13 Mar 2026 22:14:28 +0800</pubDate>

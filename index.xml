@@ -7,7 +7,208 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>WooNiuu</copyright>
-        <lastBuildDate>Mon, 16 Mar 2026 21:22:40 +0800</lastBuildDate><atom:link href="https://wooniuu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 16 Mar 2026 21:49:01 +0800</lastBuildDate><atom:link href="https://wooniuu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>非房室模型参数 #01</title>
+        <link>https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-%2301/</link>
+        <pubDate>Mon, 16 Mar 2026 21:49:01 +0800</pubDate>
+        
+        <guid>https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-%2301/</guid>
+        <description>&lt;h2 id=&#34;平均驻留时间mrt-mean-residence-time&#34;&gt;平均驻留时间(MRT, Mean Residence Time)
+&lt;/h2&gt;&lt;p&gt;$MRT_{0-t}$ ：从给药时刻到最后一个可测量浓度时刻的平均驻留时间。
+AUMC是时间甲醛浓度面积，对后期时间点更加敏感（t为权重）。AUMC的计算是整体时间连续积分。&lt;/p&gt;
+$$ MRT_{0-t} = \begin{cases}
+\frac{AUMC_{0-t}  }{AUC_{0-t} } = \frac{ \int_0^ttc(t)dt}{\int_0^tc(t)dt} ,  non-infusion\\
+\\
+\frac{AUMC_{0-t} }{AUC_{0-t} } - \frac{Time_{inf}}{2},infusion
+\end{cases} $$&lt;p&gt;$MRT_{0-\infty}$ ：外推至无穷大的平均驻留时间。
+非稳态：
+&lt;/p&gt;
+$$ MRT_{0-\infty}  = \begin{cases}
+\frac{AUMC_{0-\infty }  }{AUC_{0-\infty }  } ,  non-infusion\\  
+\\
+\frac{AUMC_{0-\infty } }{AUC_{0-\infty } } - \frac{Time_{inf}}{2},infusion
+\end{cases}$$&lt;p&gt;稳态：
+&lt;/p&gt;
+$$ MRT_{0-\infty,ss}  = \begin{cases}
+\frac{AUMC_{0-\tau } + \tau(AUC_{0-\infty} - AUC_{0-\tau}) }{AUC_{0-\tau }  } ,  non-infusion\\ 
+\\
+\frac{AUMC_{0-\tau } + \tau(AUC_{0-\infty} - AUC_{0-\tau}) }{AUC_{0-\tau }  }- \frac{Time_{inf}}{2},infusion
+\end{cases}$$&lt;h3 id=&#34;血管内给药一级消除&#34;&gt;血管内给药一级消除
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;假设药物通过静脉注射给药，消除符合一级动力学,即消除速率与当前血药浓度成正比：
+
+$$\frac{dc}{dt} = -kc$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;其中，$k$ 是消除速率常数。
+2. 积分求解血药浓度
+对上述微分方程进行积分，得到血药浓度随时间的变化关系：
+&lt;/p&gt;
+$$c(t) = c_0 e^{-kt}$$&lt;p&gt;其中，$c_0$ 是初始血药浓度。
+3. 计算概率密度函数
+在某一时刻 $t$，某个分子在体内的概率为：
+&lt;/p&gt;
+$$p(t) = \frac{c(t)}{c_0} = e^{-kt}$$&lt;p&gt;对其求微分，得到某个分子在某一时刻进入体内的概率，其相反数就是某个分子从体内被消除的概率：
+&lt;/p&gt;
+$$f(t) = -\frac{d(p(t))}{dt} = ke^{-kt}$$&lt;p&gt;这个函数 $f(t)$ 是一个概率密度函数，因为其积分等于1：
+&lt;/p&gt;
+$$\int_{0}^{\infty} f(t) \, dt = \int_{0}^{\infty} ke^{-kt} \, dt = 1$$&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;求驻留时间的期望值
+驻留时间的期望值（即平均驻留时间）可以通过积分计算：
+&lt;/p&gt;
+$$\int_{0}^{\infty} t \cdot f(t) \, dt = \int_{0}^{\infty} t \cdot ke^{-kt} \, dt$$&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对比公式
+&lt;/p&gt;
+$$MRT = \frac{\int_{0}^{\infty} t \cdot c(t) \, dt}{\int_{0}^{\infty} c(t) \, dt}$$&lt;/li&gt;
+&lt;/ol&gt;
+$$\frac{c(t)}{AUC} = \frac{c(t)}{\frac{c_0}{k}} = ke^{-kt}$$&lt;p&gt;
+因此，MRT 的公式可以写成：
+&lt;/p&gt;
+$$MRT = \frac{\int_{0}^{\infty} t \cdot ke^{-kt} \, dt}{\int_{0}^{\infty} ke^{-kt} \, dt}$$&lt;p&gt;由于分母的积分等于1，所以：
+&lt;/p&gt;
+$$MRT = \int_{0}^{\infty} t \cdot ke^{-kt} \, dt = [-te^{-kt}]_0^{\infty} + \int_0^{\infty}e^{-kt}dt$$&lt;p&gt;得到：
+&lt;/p&gt;
+$$MRT = \frac{1}{k}$$&lt;p&gt;对于符合一级动力学消除的静脉推注药物，$MRT_{iv} = \frac{1}{k}$ 等于消除速率常数的倒数。
+对于符合一级动力学消除的静脉输注药物，$MRT_{inf} = MRT_{iv} + \frac{T}{2}$。&lt;/p&gt;
+&lt;h3 id=&#34;血管外给药一级消除&#34;&gt;血管外给药一级消除
+&lt;/h3&gt;&lt;p&gt;血管外给药的平均驻留时间包含了药物的吸收过程：
+&lt;/p&gt;
+$$ MRT_{ex} = MRT_{iv} + MAT $$&lt;p&gt;平均吸收时间（MAT, Mean absorption time）为每个药物分子吸收进入机体所需的平均时间，若药物的吸收过程符合一级动力学，则：$MAT = \frac{1}{k_a}$&lt;/p&gt;
+&lt;h2 id=&#34;蓄积指数-accumulation-index&#34;&gt;蓄积指数 Accumulation Index
+&lt;/h2&gt;&lt;p&gt;在稳态研究中，上一个疗程最后一次剂量的清洗期可与第二个疗程的蓄积期重叠，前提是蓄积期足够长（至少是终末半衰期的三倍）。
+当一种药物在体内完全消除前一次剂量之前反复服用时，就会发生药物蓄积。随着时间的推移，这会导致体内的药物水平升高，直到达到稳定状态。药物蓄积是指给药间隔时间与药物消除速率之间的关系。如果服药间隔较长，则几乎不会发生蓄积。相反，如果服药间隔短于其消除时间，药物就会在体内积聚。也就是说，给药间隔的调整直接影响到药物蓄积程度。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;无药物蓄积&lt;/th&gt;
+          &lt;th&gt;药物蓄积&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;img src=&#34;https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-&#34;
+	width=&#34;182&#34;
+	height=&#34;172&#34;
+	srcset=&#34;https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 480w, https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;105&#34;
+		data-flex-basis=&#34;253px&#34;
+	
+&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;img src=&#34;https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-&#34;
+	width=&#34;189&#34;
+	height=&#34;175&#34;
+	srcset=&#34;https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 480w, https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;108&#34;
+		data-flex-basis=&#34;259px&#34;
+	
+&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;蓄积比（Accumulation Ratio, AR）量化药物浓度在稳定状态下比单次给药后高多少。它反映了药物给药频率和药物消除率之间的平衡。AR有助于预测稳态下的药物水平，并评估是否需要调整给药方案以优化疗效，同时最小化毒性。蓄积比可以由观测数据计算出来。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;方法&lt;/th&gt;
+          &lt;th&gt;假设&lt;/th&gt;
+          &lt;th&gt;特点&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$$ AR = \frac{1}{1-e^{-k*\tau}}$$ &lt;br /&gt; k，终末消除速率常数；&lt;br /&gt; $\tau$，给药间隔；&lt;/td&gt;
+          &lt;td&gt;假设符合一级消除动力学&lt;/td&gt;
+          &lt;td&gt;可通过调整$\tau$快速预测不同给药方案的蓄积比；$k$值的估计准确性影响较大；&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;$$ AR = \frac{C_{max,ss}}{C_{max,single}} $$ $$ AR = \frac{AUC_{ss}}{AUC_{single}} $$ $$ AR = \frac{C_{trough,ss}}{C_{trough,single}} $$&lt;/td&gt;
+          &lt;td&gt;假设一旦达到稳态，就不会再发生进一步的蓄积&lt;/td&gt;
+          &lt;td&gt;直接从观测数据计算；若PK参数变化显著，不同AR公式可能产生不一致结果；&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://wooniuu.github.io/image-3.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;终末半衰期的影响&#34;&gt;终末半衰期的影响
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;单相消除（单室模型）&lt;/strong&gt;
+&lt;/p&gt;
+$$ AR = \frac{1}{1-e^{-k*\tau}} = \frac{1 }{ 1 - e^{-0.693/t_{1/2}*\tau} } \approx \frac{1}{1- 0.5^{\tau/t_{1/2}}}$$$$ P/T = \frac{C_{max,ss} }{C_{min,ss} } = 2 ^{\tau/t_{1/2}}$$&lt;p&gt;从上述公式看出，多次给药的药物蓄积有两个决定因素：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;药物特性的终末期半衰期；&lt;/li&gt;
+&lt;li&gt;用药间隔；&lt;/li&gt;
+&lt;li&gt;$\tau$相对于$t_{1/2}$较大，则浓度有较大波动;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如，给药间隔 $\tau = t_{1/2} $时，蓄积指数为 2。
+&lt;img src=&#34;https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-&#34;
+	width=&#34;588&#34;
+	height=&#34;405&#34;
+	srcset=&#34;https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 480w, https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;145&#34;
+		data-flex-basis=&#34;348px&#34;
+	
+&gt;
+无论怎样的给药方案或给药间隔，都会在&lt;strong&gt;终末期半衰期的3-5倍时间&lt;/strong&gt;达到稳态。不同给药方案达稳时间及稳态平均浓度相同，但药物浓度的波动度不同，即峰和谷间的浓度差异不同。
+对于半衰期较长的药物，使用负荷剂量时，负荷剂量 (LD)=维持剂量*蓄积指数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;多相消除（多房室模型）&lt;/strong&gt;
+当药物处置呈现多相分布时，在消除的终末期半衰期之前，存在几个对应于不同分布阶段的半衰期。而某种程度上，每个半衰期都是分布、再分布和消除的函数。
+当至少 50% 的药物在终末衰变阶段被消除时，终末半衰期才对药物蓄积产生重要影响。反之，则可能无关紧要。
+&lt;img src=&#34;https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-&#34;
+	width=&#34;588&#34;
+	height=&#34;587&#34;
+	srcset=&#34;https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 480w, https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;100&#34;
+		data-flex-basis=&#34;240px&#34;
+	
+&gt;
+A,B 两种药物的  PK遵循双室模型，并具有相同的终末期半衰期（48h），A 药物大部分消除发生在分布阶段，而对于 B 药物的消除，其终末阶段则比较重要，A 药更快地达到表观稳定状态，B 药则要约4个半衰期才能达到稳态。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;消除半衰期 VS 终末期半衰期 VS 清除率&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;药物消除半衰期：血浆药物浓度下降一半所需要的时间，也可称为血浆半衰期（half-life，t1/2）；&lt;/li&gt;
+&lt;li&gt;终末期半衰期：药物达到分布平衡后的血药浓度减少50%所需的时间。在表示药物在体内“吸收、分布、代谢/排泄”过程的“药-时曲线”中，药物消除发生在曲线的终末段。
+&lt;ul&gt;
+&lt;li&gt;终末半衰期是血药浓度达到分布平衡后下降50%所需的时间，而不是血药浓度下降50%所需的时间。&lt;/li&gt;
+&lt;li&gt;终末半衰期不仅取决于药物清除率（CL），还取决于药物分布（Vd）的程度。&lt;/li&gt;
+&lt;li&gt;终末半衰期具有依赖性，是多种生理因素共同决定的结果，这导致其是PK参数中可靠性较差参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;清除率：肾在单位时间（一般用每分钟，min）内能将多少毫升血浆中所含的某些物质完全清除出去，这个被完全清除了某物质的血浆毫升数就称为该物质的清除率（ml/min）。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>非房室模型参数 #02</title>
         <link>https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-%2302/</link>
         <pubDate>Mon, 16 Mar 2026 21:22:40 +0800</pubDate>

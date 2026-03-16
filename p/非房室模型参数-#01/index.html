@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="平均驻留时间(MRT, Mean Residence Time) $MRT_{0-t}$ ：从给药时刻到最后一个可测量浓度时刻的平均驻留时间。 AUMC是时间甲醛浓度面积，对后期时间点更加敏感（t为权重）。AUMC的计算是整体时间连续积分。\n">
+<title>非房室模型参数 #01</title>
+
+<link rel='canonical' href='https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-%2301/'>
+
+<link rel="stylesheet" href="/scss/style.min.b0e76e98cdd4f7082d1fc36f7af7e0843a81201db2197c03ca426751dc923735.css"><meta property='og:title' content="非房室模型参数 #01">
+<meta property='og:description' content="平均驻留时间(MRT, Mean Residence Time) $MRT_{0-t}$ ：从给药时刻到最后一个可测量浓度时刻的平均驻留时间。 AUMC是时间甲醛浓度面积，对后期时间点更加敏感（t为权重）。AUMC的计算是整体时间连续积分。\n">
+<meta property='og:url' content='https://wooniuu.github.io/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-%2301/'>
+<meta property='og:site_name' content='WooNiuu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-03-16T21:49:01&#43;08:00'/><meta property='article:modified_time' content='2026-03-16T21:49:01&#43;08:00'/>
+<meta name="twitter:title" content="非房室模型参数 #01">
+<meta name="twitter:description" content="平均驻留时间(MRT, Mean Residence Time) $MRT_{0-t}$ ：从给药时刻到最后一个可测量浓度时刻的平均驻留时间。 AUMC是时间甲醛浓度面积，对后期时间点更加敏感（t为权重）。AUMC的计算是整体时间连续积分。\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_46bcd57fb791a6c4.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🖖</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">WooNiuu</a></h1>
+            <h2 class="site-description">Welcome!</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/WooNiuu/WooNiuu.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页|Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8Eabout/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于|About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档|Arhives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索|Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E6%8A%80%E6%9C%AF%E9%93%BE%E6%8E%A5-links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>技术链接 | Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#平均驻留时间mrt-mean-residence-time">平均驻留时间(MRT, Mean Residence Time)</a>
+      <ol>
+        <li><a href="#血管内给药一级消除">血管内给药一级消除</a></li>
+        <li><a href="#血管外给药一级消除">血管外给药一级消除</a></li>
+      </ol>
+    </li>
+    <li><a href="#蓄积指数-accumulation-index">蓄积指数 Accumulation Index</a>
+      <ol>
+        <li><a href="#终末半衰期的影响">终末半衰期的影响</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-%2301/">非房室模型参数 #01</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-03-16T21:49:01&#43;08:00'>2026-03-16</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="平均驻留时间mrt-mean-residence-time">平均驻留时间(MRT, Mean Residence Time)
+</h2><p>$MRT_{0-t}$ ：从给药时刻到最后一个可测量浓度时刻的平均驻留时间。
+AUMC是时间甲醛浓度面积，对后期时间点更加敏感（t为权重）。AUMC的计算是整体时间连续积分。</p>
+$$ MRT_{0-t} = \begin{cases}
+\frac{AUMC_{0-t}  }{AUC_{0-t} } = \frac{ \int_0^ttc(t)dt}{\int_0^tc(t)dt} ,  non-infusion\\
+\\
+\frac{AUMC_{0-t} }{AUC_{0-t} } - \frac{Time_{inf}}{2},infusion
+\end{cases} $$<p>$MRT_{0-\infty}$ ：外推至无穷大的平均驻留时间。
+非稳态：
+</p>
+$$ MRT_{0-\infty}  = \begin{cases}
+\frac{AUMC_{0-\infty }  }{AUC_{0-\infty }  } ,  non-infusion\\  
+\\
+\frac{AUMC_{0-\infty } }{AUC_{0-\infty } } - \frac{Time_{inf}}{2},infusion
+\end{cases}$$<p>稳态：
+</p>
+$$ MRT_{0-\infty,ss}  = \begin{cases}
+\frac{AUMC_{0-\tau } + \tau(AUC_{0-\infty} - AUC_{0-\tau}) }{AUC_{0-\tau }  } ,  non-infusion\\ 
+\\
+\frac{AUMC_{0-\tau } + \tau(AUC_{0-\infty} - AUC_{0-\tau}) }{AUC_{0-\tau }  }- \frac{Time_{inf}}{2},infusion
+\end{cases}$$<h3 id="血管内给药一级消除">血管内给药一级消除
+</h3><ol>
+<li>假设药物通过静脉注射给药，消除符合一级动力学,即消除速率与当前血药浓度成正比：
+
+$$\frac{dc}{dt} = -kc$$</li>
+</ol>
+<p>其中，$k$ 是消除速率常数。
+2. 积分求解血药浓度
+对上述微分方程进行积分，得到血药浓度随时间的变化关系：
+</p>
+$$c(t) = c_0 e^{-kt}$$<p>其中，$c_0$ 是初始血药浓度。
+3. 计算概率密度函数
+在某一时刻 $t$，某个分子在体内的概率为：
+</p>
+$$p(t) = \frac{c(t)}{c_0} = e^{-kt}$$<p>对其求微分，得到某个分子在某一时刻进入体内的概率，其相反数就是某个分子从体内被消除的概率：
+</p>
+$$f(t) = -\frac{d(p(t))}{dt} = ke^{-kt}$$<p>这个函数 $f(t)$ 是一个概率密度函数，因为其积分等于1：
+</p>
+$$\int_{0}^{\infty} f(t) \, dt = \int_{0}^{\infty} ke^{-kt} \, dt = 1$$<ol start="4">
+<li>
+<p>求驻留时间的期望值
+驻留时间的期望值（即平均驻留时间）可以通过积分计算：
+</p>
+$$\int_{0}^{\infty} t \cdot f(t) \, dt = \int_{0}^{\infty} t \cdot ke^{-kt} \, dt$$</li>
+<li>
+<p>对比公式
+</p>
+$$MRT = \frac{\int_{0}^{\infty} t \cdot c(t) \, dt}{\int_{0}^{\infty} c(t) \, dt}$$</li>
+</ol>
+$$\frac{c(t)}{AUC} = \frac{c(t)}{\frac{c_0}{k}} = ke^{-kt}$$<p>
+因此，MRT 的公式可以写成：
+</p>
+$$MRT = \frac{\int_{0}^{\infty} t \cdot ke^{-kt} \, dt}{\int_{0}^{\infty} ke^{-kt} \, dt}$$<p>由于分母的积分等于1，所以：
+</p>
+$$MRT = \int_{0}^{\infty} t \cdot ke^{-kt} \, dt = [-te^{-kt}]_0^{\infty} + \int_0^{\infty}e^{-kt}dt$$<p>得到：
+</p>
+$$MRT = \frac{1}{k}$$<p>对于符合一级动力学消除的静脉推注药物，$MRT_{iv} = \frac{1}{k}$ 等于消除速率常数的倒数。
+对于符合一级动力学消除的静脉输注药物，$MRT_{inf} = MRT_{iv} + \frac{T}{2}$。</p>
+<h3 id="血管外给药一级消除">血管外给药一级消除
+</h3><p>血管外给药的平均驻留时间包含了药物的吸收过程：
+</p>
+$$ MRT_{ex} = MRT_{iv} + MAT $$<p>平均吸收时间（MAT, Mean absorption time）为每个药物分子吸收进入机体所需的平均时间，若药物的吸收过程符合一级动力学，则：$MAT = \frac{1}{k_a}$</p>
+<h2 id="蓄积指数-accumulation-index">蓄积指数 Accumulation Index
+</h2><p>在稳态研究中，上一个疗程最后一次剂量的清洗期可与第二个疗程的蓄积期重叠，前提是蓄积期足够长（至少是终末半衰期的三倍）。
+当一种药物在体内完全消除前一次剂量之前反复服用时，就会发生药物蓄积。随着时间的推移，这会导致体内的药物水平升高，直到达到稳定状态。药物蓄积是指给药间隔时间与药物消除速率之间的关系。如果服药间隔较长，则几乎不会发生蓄积。相反，如果服药间隔短于其消除时间，药物就会在体内积聚。也就是说，给药间隔的调整直接影响到药物蓄积程度。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>无药物蓄积</th>
+          <th>药物蓄积</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><img src="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-"
+	width="182"
+	height="172"
+	srcset="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 480w, /p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 1024w"
+	loading="lazy"
+	
+		alt="alt text"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="105"
+		data-flex-basis="253px"
+	
+></td>
+          <td><img src="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-"
+	width="189"
+	height="175"
+	srcset="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 480w, /p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 1024w"
+	loading="lazy"
+	
+		alt="alt text"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="108"
+		data-flex-basis="259px"
+	
+></td>
+      </tr>
+  </tbody>
+</table></div>
+<p>蓄积比（Accumulation Ratio, AR）量化药物浓度在稳定状态下比单次给药后高多少。它反映了药物给药频率和药物消除率之间的平衡。AR有助于预测稳态下的药物水平，并评估是否需要调整给药方案以优化疗效，同时最小化毒性。蓄积比可以由观测数据计算出来。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>假设</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$$ AR = \frac{1}{1-e^{-k*\tau}}$$ <br /> k，终末消除速率常数；<br /> $\tau$，给药间隔；</td>
+          <td>假设符合一级消除动力学</td>
+          <td>可通过调整$\tau$快速预测不同给药方案的蓄积比；$k$值的估计准确性影响较大；</td>
+      </tr>
+      <tr>
+          <td>$$ AR = \frac{C_{max,ss}}{C_{max,single}} $$ $$ AR = \frac{AUC_{ss}}{AUC_{single}} $$ $$ AR = \frac{C_{trough,ss}}{C_{trough,single}} $$</td>
+          <td>假设一旦达到稳态，就不会再发生进一步的蓄积</td>
+          <td>直接从观测数据计算；若PK参数变化显著，不同AR公式可能产生不一致结果；</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><img src="/image-3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="alt text"
+	
+	
+></p>
+<h3 id="终末半衰期的影响">终末半衰期的影响
+</h3><p><strong>单相消除（单室模型）</strong>
+</p>
+$$ AR = \frac{1}{1-e^{-k*\tau}} = \frac{1 }{ 1 - e^{-0.693/t_{1/2}*\tau} } \approx \frac{1}{1- 0.5^{\tau/t_{1/2}}}$$$$ P/T = \frac{C_{max,ss} }{C_{min,ss} } = 2 ^{\tau/t_{1/2}}$$<p>从上述公式看出，多次给药的药物蓄积有两个决定因素：</p>
+<ul>
+<li>药物特性的终末期半衰期；</li>
+<li>用药间隔；</li>
+<li>$\tau$相对于$t_{1/2}$较大，则浓度有较大波动;</li>
+</ul>
+<p>例如，给药间隔 $\tau = t_{1/2} $时，蓄积指数为 2。
+<img src="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-"
+	width="588"
+	height="405"
+	srcset="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 480w, /p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 1024w"
+	loading="lazy"
+	
+		alt="alt text"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="145"
+		data-flex-basis="348px"
+	
+>
+无论怎样的给药方案或给药间隔，都会在<strong>终末期半衰期的3-5倍时间</strong>达到稳态。不同给药方案达稳时间及稳态平均浓度相同，但药物浓度的波动度不同，即峰和谷间的浓度差异不同。
+对于半衰期较长的药物，使用负荷剂量时，负荷剂量 (LD)=维持剂量*蓄积指数。</p>
+<p><strong>多相消除（多房室模型）</strong>
+当药物处置呈现多相分布时，在消除的终末期半衰期之前，存在几个对应于不同分布阶段的半衰期。而某种程度上，每个半衰期都是分布、再分布和消除的函数。
+当至少 50% 的药物在终末衰变阶段被消除时，终末半衰期才对药物蓄积产生重要影响。反之，则可能无关紧要。
+<img src="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0-"
+	width="588"
+	height="587"
+	srcset="/p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 480w, /p/%E9%9D%9E%E6%88%BF%E5%AE%A4%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0- 1024w"
+	loading="lazy"
+	
+		alt="alt text"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="100"
+		data-flex-basis="240px"
+	
+>
+A,B 两种药物的  PK遵循双室模型，并具有相同的终末期半衰期（48h），A 药物大部分消除发生在分布阶段，而对于 B 药物的消除，其终末阶段则比较重要，A 药更快地达到表观稳定状态，B 药则要约4个半衰期才能达到稳态。</p>
+<p><strong>消除半衰期 VS 终末期半衰期 VS 清除率</strong></p>
+<ul>
+<li>药物消除半衰期：血浆药物浓度下降一半所需要的时间，也可称为血浆半衰期（half-life，t1/2）；</li>
+<li>终末期半衰期：药物达到分布平衡后的血药浓度减少50%所需的时间。在表示药物在体内“吸收、分布、代谢/排泄”过程的“药-时曲线”中，药物消除发生在曲线的终末段。
+<ul>
+<li>终末半衰期是血药浓度达到分布平衡后下降50%所需的时间，而不是血药浓度下降50%所需的时间。</li>
+<li>终末半衰期不仅取决于药物清除率（CL），还取决于药物分布（Vd）的程度。</li>
+<li>终末半衰期具有依赖性，是多种生理因素共同决定的结果，这导致其是PK参数中可靠性较差参数。</li>
+</ul>
+</li>
+<li>清除率：肾在单位时间（一般用每分钟，min）内能将多少毫升血浆中所含的某些物质完全清除出去，这个被完全清除了某物质的血浆毫升数就称为该物质的清除率（ml/min）。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const elementsToRender = [".main-article", ".widget--toc"];
+
+        elementsToRender.forEach(selector => {
+            const element = document.querySelector(selector);
+            if (element) {
+                renderMathInElement(element, {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false },
+                        { left: "\\[", right: "\\]", display: true }
+                    ],
+                    ignoredClasses: ["gist"]
+                });
+            }
+        });
+    });
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2026 WooNiuu
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.32.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
